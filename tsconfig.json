@@ -1,0 +1,33 @@
+
+/*
+  tsconfig.json ts 编译器可以很久其信息来对代码进行编译
+  include ** b表示任意目录 * 表示任意文件
+  一般结合打包工具 如webpack 一起使用
+*/
+{
+  "compilerOptions": {
+    "module": "es2015",// es2015 规范
+    "target": "es2015",//被编译成的es版本/'es3','es5','es6','es2015','es2016','es2017','es2018','es2019','es2020','esnext'
+    "sourceMap": false, //是否生成sourceMap 编译错误时定位源代码的位置
+     "lib" : ["DOM"],//指定所用到的库,一般不指定
+      //"esModuleInterop": true, //开启后如果目标模块是 es6 模块m，就直接返回目标模块；否则将目标模块挂在一个对象的 default 上，返回该对象。
+     //"outDir": "./ts" //指定编译后的文件所在的目录
+     //"outFile": "./src/ts/concat.ts.js",//将全局作用域下的编译后的文件合并成一个,一般由打包工具来解决
+     "moduleResolution": "node", //就是告诉TypeScript编译器，采用何种方式解析（也就是查找）TypeScript文件中依赖的模块的位置，可选项为：Classic和Node
+      //node此解析策略试图在运行时模仿 Node.js 模块解析机制。Node.js 模块文档中概述了完整的 Node.js 解析算法
+     "allowJs": false, //是否编译目录下的js 文件
+     "checkJs": false,//是否检查目录下的js 文件
+     "removeComments": true,//是否移除注释
+     "strict": true, //所有严格检查的总开关，true ，下面设置的严格检查都会开启,下面都可以不写了，一般设置为true
+     "noEmit": false,//是否生成编译后的文件
+     "noEmitOnError": true,//有错误时不生成编译后的文件
+     "alwaysStrict": false, //是否设置编译后的文件是否启用严格模式，默认是false
+     "noImplicitAny": true, //在ts 中启用隐式any 属性检查 true 则不允许使用隐式的any
+     "noImplicitThis": true, //是否允许不明确类型的this
+      "strictNullChecks": true //检查空值
+  },
+  "include": ["src/js/**/*"],
+  "exclude": [
+    "node_modules"
+  ]
+}
